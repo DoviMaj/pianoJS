@@ -17,6 +17,19 @@ divs.forEach((i) =>
   })
 )
 
+divs.forEach((i) =>
+  i.addEventListener('touchstart', function(e){
+    if(e.touches.length >1){
+      const audio = document.querySelector(`audio[data-key="${i.firstElementChild.innerHTML.toLowerCase()}"]`);
+      if(!audio) return;
+  
+      i.classList.add('playing')
+      audio.currentTime = 0;
+      audio.play()  
+    }}
+    )
+)
+
 window.addEventListener('keydown', function(e){
   const audio = document.querySelector(`audio[data-key="${e.key}"]`);
   const note = document.querySelector(`div[data-key="${e.key}"]`)
