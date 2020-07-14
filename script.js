@@ -14,14 +14,6 @@ divs.forEach((i) =>
     i.classList.add('playing')
     audio.currentTime = 0;
     audio.play()  
-  }),
-  i.addEventListener('touchstart', function(e){
-    const audio = document.querySelector(`audio[data-key="${i.firstElementChild.innerHTML.toLowerCase()}"]`);
-    if(!audio) return;
-
-    i.classList.add('playing')
-    audio.currentTime = 0;
-    audio.play()  
   })
 )
 
