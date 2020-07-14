@@ -4,6 +4,27 @@ function removeTransition(e) {
   e.target.classList.remove('playing');
 }
 
+let divs = document.querySelectorAll('.note');
+
+divs.forEach((i) =>
+  i.addEventListener('click', function(e){
+    const audio = document.querySelector(`audio[data-key="${i.firstElementChild.innerHTML.toLowerCase()}"]`);
+    if(!audio) return;
+
+    i.classList.add('playing')
+    audio.currentTime = 0;
+    audio.play()  
+  }),
+  i.addEventListener('touchstart', function(e){
+    const audio = document.querySelector(`audio[data-key="${i.firstElementChild.innerHTML.toLowerCase()}"]`);
+    if(!audio) return;
+
+    i.classList.add('playing')
+    audio.currentTime = 0;
+    audio.play()  
+  })
+)
+
 window.addEventListener('keydown', function(e){
   const audio = document.querySelector(`audio[data-key="${e.key}"]`);
   const note = document.querySelector(`div[data-key="${e.key}"]`)
@@ -18,4 +39,4 @@ const notes = Array.from(document.querySelectorAll('.note'));
 notes.forEach(notes => notes.addEventListener('transitionend', removeTransition));
 
 // add footer
-// add piano icon link ()
+// add piano icon link (x)

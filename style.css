@@ -12,6 +12,9 @@ html{
   justify-content: center;
   height: 150px;
 }
+.note{
+  cursor: pointer;
+}
 
 .note.first{
   margin: 23px;
