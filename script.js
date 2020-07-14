@@ -19,7 +19,7 @@ divs.forEach((i) =>
 
 divs.forEach((i) =>
   i.addEventListener('touchstart', function(e){
-    if(e.touches.length >1){
+    if(e.touches.length >= 1){
       const audio = document.querySelector(`audio[data-key="${i.firstElementChild.innerHTML.toLowerCase()}"]`);
       if(!audio) return;
   
